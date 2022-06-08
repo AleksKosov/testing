@@ -5,7 +5,16 @@ import time
 
 class BasePage:
     def __init__(self):
-        self.browser = webdriver.Firefox()
+        self.capabilities = {
+                    "browserName": "chrome",
+                    "browserVersion": "102.0",
+                    "selenoid:options": {
+                        "enableVNC": True,
+                        "enableVideo": False
+                        }
+                    }
+        self.browser = webdriver.Remote(command_executor="http://81.163.29.65:4444/wd/hub",
+                                        desired_capabilities=self.capabilities)
         self.browser.implicitly_wait(60)
         self.browser.maximize_window()
         self.url = "https://yandex.ru/"
