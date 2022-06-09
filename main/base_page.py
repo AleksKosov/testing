@@ -6,14 +6,14 @@ import time
 class BasePage:
     def __init__(self):
         self.capabilities = {
-                    "browserName": "firefox",
-                    "browserVersion": "57.0",
-                    "selenoid:options": {
-                        "enableVNC": True,
-                        "enableVideo": True
+                            "browserName": "chrome",
+                            "browserVersion": "102.0",
+                            "selenoid:options": {
+                                "enableVNC": True,
+                                "enableVideo": True
+                            }
                         }
-                    }
-        self.browser = webdriver.Remote(command_executor="http://127.0.0.1:4445/wd/hub",
+        self.browser = webdriver.Remote(command_executor="http://localhost:4444/wd/hub",
                                         desired_capabilities=self.capabilities)
         # self.browser = webdriver.Chrome()
         self.browser.implicitly_wait(60)
@@ -22,7 +22,7 @@ class BasePage:
 
     def open_search_stroke(self):
         self.browser.get(self.url)
-        time.sleep(3)
+        time.sleep(15)
 
     def close_window(self):
         wd = self.browser

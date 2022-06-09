@@ -13,15 +13,15 @@ services:
       - "/c/Users/Admin/selenoid/video:/opt/selenoid/video"
       - "/c/Users/Admin/selenoid/logs:/opt/selenoid/logs"
     environment:
-      - OVERRIDE_VIDEO_OUTPUT_DIR=/path/to/config/video
+      - OVERRIDE_VIDEO_OUTPUT_DIR=/c/Users/Admin/selenoid/video
     command: [ "-conf", "/etc/selenoid/browsers.json", "-video-output-dir", "/opt/selenoid/video", "-log-output-dir", "/opt/selenoid/logs" ]
     ports:
-      - "4445:4444"
+      - "4444:4444"
   selenoid-ui:
     image: "aerokube/selenoid-ui"
     network_mode: bridge
     links:
       - selenoid
     ports:
-      - "8084:8080"
+      - "8080:8080"
     command: ["--selenoid-uri", "http://selenoid:4444"]
