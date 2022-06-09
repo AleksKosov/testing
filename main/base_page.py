@@ -22,7 +22,7 @@ class BasePage:
 
     def open_search_stroke(self):
         self.browser.get(self.url)
-        time.sleep(15)
+        time.sleep(2)
 
     def close_window(self):
         wd = self.browser

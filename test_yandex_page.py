@@ -5,4 +5,4 @@ import allure
 def test_open_main_page(app):
     app.open_search_stroke()
     # app.close_window()
-    # app.get_request()
+    app.get_request()
