@@ -13,7 +13,7 @@ class BasePage:
                                 "enableVideo": True
                             }
                         }
-        self.browser = webdriver.Remote(command_executor="http://localhost:4444/wd/hub",
+        self.browser = webdriver.Remote(command_executor="http://127.0.0.1:4445/wd/hub",
                                         desired_capabilities=self.capabilities)
         # self.browser = webdriver.Chrome()
         self.browser.implicitly_wait(60)
